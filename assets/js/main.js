@@ -1,6 +1,5 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
-const botaoNovaPagina = document.getElementsByClassName("pokeDetails")
 
 const maxRecords = 151
 const limit = 10
@@ -9,7 +8,7 @@ let offset = 0;
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
-            <button class="pokeDetails" type = "button")">
+            <button class="pokeDetails" type = "button" onclick="loadNewPage">
                 <a class="pokeDetalhes" href="pg001.html">
                         <span class="number">#${pokemon.number}</span>
                         <span class="name">${pokemon.name}</span>
@@ -50,9 +49,10 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-loadNewPage.addEventListener('click', () => {
-    num = pokemon.number
+function loadNewPagen(number) {
+    number = getElementsByClassName('number')
+    loadPokemonDetails()
+    loadDetalhes(pokemon)
     window.Location.assign("/pg001.html")
-    .then((loadDetalhes(num)))
-})
+}
 

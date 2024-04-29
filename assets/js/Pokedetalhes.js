@@ -4,10 +4,10 @@ const pgDefault = document.getElementById("defaultOpen");
 const aboutpg = document.getElementById("about");
 const statuspg = document.getElementById("status");
 
-pokeApi.loadDetalhes = (pokemon) => {
+pokeApi.loadPage02 = (pokemon) => {
     return fetch(pokemon.url)
         .then((response) => response.json())
-        .then(convertPokeApiDetailToPokemon)
+        .then(loadDetalhes)
 }
 
 
@@ -106,13 +106,4 @@ function loadDetalhes(pokemon) {
     `
     ).join('')
     pokemonDados.innerHTML += newHtml})
-}
-
-loadDetalhes(pokemon);
-
-function loadPokemonDetails(offset, limit) {
-    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-        const newHtml = pokemons.map(convertPokeApiDetails).join('')
-        detailPokemon.innerHTML += newHtml
-    })
 }
