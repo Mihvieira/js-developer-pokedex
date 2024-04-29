@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style-type: none;
+    text-transform: capitalize;
+    font-family: "Roboto", sans-serif;
+}
+
+.interface{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    position: relative;  
+}
+
+.interface .pokemon {
+    background-color: var(--cor-grass);
+    height: 380px;
+    width: 100%;
+    border: 0 10 0 10;
+    margin: 0;
+    padding: 0;
+    border-radius: 0%;
+}
+
+.interface .pokemon .icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    margin: 20px;
+}
+
+.interface .pokemon .basicInfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px 20px;
+}
+
+.interface .pokemon .basicInfo .name{
+    font-size: 2.7rem;
+    font-weight: bold;
+}
+
+.interface .pokemon .basicInfo .number{
+    color: white;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 20px;
+}
+
+.interface .pokemon .basicInfo .detail .types{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.interface .pokemon .basicInfo .detail .types li{
+    font-size: .750rem;
+}
+
+.interface .imgPokemon{
+    position: absolute;
+    top: 48%;
+    justify-content: center;
+    margin-left: 25%;
+    z-index: 1;
+}
+
+.interface .pagination_details{
+    position: absolute;
+    top: 96%;
+    background-color: white;
+    margin: 0;
+    padding: 7px;
+    display: inline-block;
+    border-top: 30px;
+    border-radius: 1rem;
+    width: 100%;
+    height: 60vh;
+    text-align: center;  
+}
+
+.pagination_details .tab_links{
+    margin-top: 10%;
+    overflow: hidden;
+    background-color: var(--cor-name);
+    border: 0px 10px;
+}
+
+.pagination_details .tab_links .botao_detalhe{
+    padding: 20px 0px;
+    color: gray;
+    float: left;
+    border: 1px;
+    background-color: var(--cor-name);
+    width: 25%;
+    cursor: pointer;
+    outline: none;
+    transition: .3s;
+}
+
+.tab_links .botao_detalhe:hover{
+    color: black;
+    border-bottom: 1.5px solid blue; 
+}
+
+.botao_detalhe.active{
+    border-bottom: 1.5px solid blue; 
+}
+
+.pagination_details .subdetails {
+    padding: 0px;
+    margin: 20px 20px; 
+}
+
+.pagination_details .subdetails h2{
+    display: flex;
+    font-size: 1rem;
+    justify-content: baseline;
+}
+
+.subdetails .atributos{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    display: flex;
+    justify-content: baseline;
+}
+
+.atributo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: baseline;
+    margin: 20px;
+}
+
+.atributo h2{
+    font-weight: 400;
+}
+
+.atributo h3{
+    font-weight: 200;
+}
+
+.atributo p{
+    font-weight: 300;
+}
+
+.sts {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: start;
+    justify-content: space-between; 
+   
+}
+
+.progress-status{
+    width: 50%; 
+    background-color: #ddd; 
+}
+
+.progressbar{
+    width: 1%; 
+    height: 35px; 
+    background-color: #4CAF50; 
+    text-align: center; 
+    line-height: 32px; 
+    color: black;
+}
+
+@media screen and (min-width: 992px) {
+    .interface {
+        max-width: 992px;
+        height: auto;
+        margin: 1rem auto;
+        border-radius: 1rem;
+    }
+}
