@@ -6,6 +6,11 @@
     list-style: none;
 }
 
+.pokeDetails{
+    border: 0;
+    background-color: transparent;
+}
+
 .normal {
     background-color: var(--cor-normal);
 }

@@ -8,8 +8,7 @@ let offset = 0;
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
-            <button class="pokeDetails" type = "button" onclick="loadNewPage">
-                <a class="pokeDetalhes" href="pg001.html">
+            <button class="pokeDetails" type = "button" onclick="loadNewPage()">
                         <span class="number">#${pokemon.number}</span>
                         <span class="name">${pokemon.name}</span>
                         <div class="detail">
@@ -19,7 +18,6 @@ function convertPokemonToLi(pokemon) {
                             <img src="${pokemon.photo}"
                                  alt="${pokemon.name}">
                         </div>
-                </a>
             </button>
         </li>
     `
@@ -49,10 +47,8 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-function loadNewPagen(number) {
-    number = getElementsByClassName('number')
-    loadPokemonDetails()
-    loadDetalhes(pokemon)
-    window.Location.assign("/pg001.html")
+function loadNewPage(id) {
+    const newPage = window.open("", "", "", "")
+    newPage.document.write("<p> nova págnia</p>")
 }
 
