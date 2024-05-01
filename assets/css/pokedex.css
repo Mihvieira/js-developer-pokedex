@@ -6,9 +6,10 @@
     list-style: none;
 }
 
-.pokeDetails{
+#pokeDetails{
     border: 0;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .normal {
