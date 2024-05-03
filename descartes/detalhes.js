@@ -4,6 +4,14 @@ const pgDefault = document.getElementById("defaultOpen");
 const aboutpg = document.getElementById("about");
 const statuspg = document.getElementById("status");
 
+function myfunction() {
+    number = getElementsByClassName("poke").value
+    var element = document.getElementsByClassName("interface")
+    const finalResult = pokeApi.getPokeData(number)
+    .then((pokeData)=> {convertPokemonToHtml(pokeData)
+    }).then((html) => { element.innerHTML += html})
+}
+
 
 function loadDetalhes(pokemon) {
     return`

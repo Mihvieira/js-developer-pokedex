@@ -1,16 +1,4 @@
 
-//const geral = ['nome', 'url']
-//const keys = ["about", "status", "moves",]
-//const list = [hp, attack, defense, speed]
-
-function myfunction() {
-    number = getElementsByClassName("poke").value
-    var element = newPage.document.getElementsByClassName("interface")
-    const finalResult = pokeApi.getPokeData(number)
-    .then((pokeData)=> {convertPokemonToHtml(pokeData)
-    }).then((html) => { element.innerHTML += html})
-}
-
 function transformData(pokeDetail) {
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id

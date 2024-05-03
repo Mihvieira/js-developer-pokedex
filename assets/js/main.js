@@ -1,7 +1,6 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const btnDetalhes = document.getElementById("pokeDetails")
-var newPage;
 
 const maxRecords = 151
 const limit = 10
@@ -10,7 +9,7 @@ let offset = 0;
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
-            <button id="pokeDetails" type = "button" onclick="loadNewPage("${pokemon.nuber}")">
+            <button id="pokeDetails" type = "button" onclick="loadNewPage(${pokemon.number})">
                         <span class="number">#${pokemon.number}</span>
                         <span class="name">${pokemon.name}</span>
                         <div class="detail">
@@ -51,10 +50,13 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-function loadNewPage(number){
-    newPage= window.open('newpage.html', 'newpage', '', '')
+function loadNewPage(number) {
+    
     const finalResult = pokeApi.getPokeData(number)
-    .then((pokeData)=> {convertPokemonToHtml(pokeData)
-    }).then((html) => { element.innerHTML += html})
+    .then((pokeData)=> {
+        html = convertPokemonToHtml(pokeData)
+        //window.open('newpage.html', 'newpage', '', '')
+        //var element = document.getElementsByClassName("interface")
+        pokemonList.innerHTML += html})
 }
 
