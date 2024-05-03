@@ -9,15 +9,11 @@ class Pokemon {
     weight;
     abilities = [];
     ability;
-    eggGroups;
-    hp;
-    attack;
-    defense;
-    speed;
-    total = this.hp+this.attack+this.defense+this.speed;
-    names = [];
-    nameMove;
-}
-
-
+    stats = [];
+    stat;
+    statsNumber = [];
+    statNumber;
+    moves = [];
+    move;
+}  
 
