@@ -1,6 +1,7 @@
 const element = document.getElementsByClassName("interface")
 const params = new URLSearchParams(window.location.search)
 const id = params.get("id")
+const heart = document.querySelector("heart")
 
 function transformData(pokeDetail) {
     const pokemon = new Pokemon()
@@ -43,14 +44,44 @@ function transformData(pokeDetail) {
 }
 
 function convertPokemonToHtml(pokemon){
-    return `<div class="pokemon">
+    const newHtml =  document.write(`
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Font Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+    <!-- Nosso CSS -->
+    <link rel="stylesheet" href="assets/css/vars.css">  
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/pokedex.css">
+    <link rel="stylesheet" href="assets/css/details.css">
+    <script src="https://kit.fontawesome.com/988f4d2dd8.js" crossorigin="anonymous"></script>
+
+    <script src="assets/js/pokemon-model.js"></script>
+    <script src="assets/js/poke-detalhes.js"></script>
+
+</head>
+<body>
+    <div id="detailPokemon"class="interface">
+    <div class="pokemon">
     <div class="icons">
-        <i class="fa-solid fa-arrow-left"></i>
-        <i class="fa-regular fa-heart"></i>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <button class="heart"><i class="fa-regular fa-heart"></i></button>
     </div>
     <div class="basicInfo">
-            <span class="name">#${pokemon.name}</span>
-            <span class="number">${pokemon.number}</span>
+            <span class="name">${pokemon.name}</span>
+            <span class="number">#${pokemon.number}</span>
         <div class="detail">
         <ol class="types">
                                 ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
@@ -103,14 +134,17 @@ function convertPokemonToHtml(pokemon){
     <div class="types">
         <ol class="atributos">
             <li class="atributo move">
-            <h3> Name </h3>
             <p>${pokemon.moves.map((move) => `<h3 class="move ${move}">${move}</h3>`).join('')}</p>
             </li>
         </ol><!--atributos-->
     </div><!--types-->
 </div><!--subdetails-->
 </div><!--pagination_details-->
-`
+</div>
+</body>
+</html>
+`)   
+    return newHtml
 }
 
 function getPokeData (number) {
@@ -122,9 +156,14 @@ function getPokeData (number) {
 
 function displayDetails(id) {
     const finalResult = getPokeData(id)
-    .then((pokeData)=> {
-        const detailsPage = pokeData.map(convertPokemonToHtml).join('')
-        element.innerHTML += detailsPage})
-    }
+    .then((pokeData = []) => {
+        const detailsPage = convertPokemonToHtml(pokeData)})
+}
 
 displayDetails(id)
+
+heart.addEventListener("click", ()=>{
+    const iconHeart = document.querySelector("fa-regular fa-heart")
+    iconHeart.style.color = "red";
+    return iconHeart
+})

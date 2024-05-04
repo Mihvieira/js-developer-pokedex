@@ -33,6 +33,11 @@
     margin: 20px;
 }
 
+.icons .heart{
+    border: 0;
+    background-color: transparent;
+}
+
 .interface .pokemon .basicInfo{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -81,10 +86,13 @@
     border-radius: 1rem;
     width: 100%;
     height: 60vh;
-    text-align: center;  
+    text-align: center; 
+    
 }
 
 .pagination_details .tab_links{
+    display: flex;
+    justify-content: center;
     margin-top: 10%;
     overflow: hidden;
     background-color: var(--cor-name);
@@ -156,6 +164,13 @@
     justify-items: start;
     justify-content: space-between; 
    
+}
+
+.move{
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+    justify-content: space-between; 
 }
 
 .progress-status{
