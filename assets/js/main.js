@@ -2,6 +2,7 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const btnDetalhes = document.getElementById("pokeDetails")
 
+
 const maxRecords = 151
 const limit = 10
 let offset = 0;
@@ -51,12 +52,6 @@ loadMoreButton.addEventListener('click', () => {
 })
 
 function loadNewPage(number) {
-    
-    const finalResult = pokeApi.getPokeData(number)
-    .then((pokeData)=> {
-        html = convertPokemonToHtml(pokeData)
-        //window.open('newpage.html', 'newpage', '', '')
-        //var element = document.getElementsByClassName("interface")
-        pokemonList.innerHTML += html})
+    window.location.href = "newpage.html?id=" + number
 }
 
