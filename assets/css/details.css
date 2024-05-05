@@ -4,7 +4,6 @@
     border: 0;
     list-style-type: none;
     text-transform: capitalize;
-    font-family: "Roboto", sans-serif;
 }
 
 .interface{
@@ -85,7 +84,7 @@
     border-top: 30px;
     border-radius: 1rem;
     width: 100%;
-    height: 60vh;
+    height: 60%;
     text-align: center; 
     
 }
@@ -116,13 +115,18 @@
     border-bottom: 1.5px solid blue; 
 }
 
-.botao_detalhe.active{
-    border-bottom: 1.5px solid blue; 
+.pagination_details .tab_links .botao_detalhe.active{
+    border-bottom: 1.5px solid blue;
 }
 
-.pagination_details .subdetails {
+.subdetails {
+    display: none;
+}
+
+.subdetails.show{
+    display: flex;
     padding: 0px;
-    margin: 20px 20px; 
+    margin: 20px 20px;
 }
 
 .pagination_details .subdetails h2{
@@ -158,7 +162,7 @@
     font-weight: 300;
 }
 
-.sts {
+.atributo.sts {
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: start;
@@ -166,7 +170,7 @@
    
 }
 
-.move{
+.atributo.move{
     display: grid; 
     grid-template-columns: 1fr 1fr;
     justify-items: start;

@@ -135,7 +135,6 @@
     border-radius: 1rem;
     filter: brightness(1.1);
     text-align: center;
-    background-color: var(--cor-grass);
 }
 
 .pokemon .detail img {
