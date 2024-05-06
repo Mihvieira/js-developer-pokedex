@@ -4,6 +4,7 @@
     border: 0;
     list-style-type: none;
     text-transform: capitalize;
+    text-decoration: none;
 }
 
 .interface{
@@ -24,17 +25,25 @@
     border-radius: 0%;
 }
 
-.interface .pokemon .icons{
+.interface .pokemon .icons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: white;
     margin: 20px;
+}
+
+.interface .pokemon .icons i{
+    color: white;
 }
 
 .icons .heart{
     border: 0;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.icons .heart.active i{
+    color: red;
 }
 
 .interface .pokemon .basicInfo{
@@ -67,10 +76,10 @@
 }
 
 .interface .imgPokemon{
-    position: absolute;
-    top: 48%;
+    position: relative;
+    display: flex;
+    top: 4%;
     justify-content: center;
-    margin-left: 25%;
     z-index: 1;
 }
 
@@ -84,7 +93,6 @@
     border-top: 30px;
     border-radius: 1rem;
     width: 100%;
-    height: 60%;
     text-align: center; 
     
 }
@@ -98,7 +106,7 @@
     border: 0px 10px;
 }
 
-.pagination_details .tab_links .botao_detalhe{
+.pagination_details .tab_links .botao-detalhe{
     padding: 20px 0px;
     color: gray;
     float: left;
@@ -115,7 +123,7 @@
     border-bottom: 1.5px solid blue; 
 }
 
-.pagination_details .tab_links .botao_detalhe.active{
+.pagination_details .tab_links .botao-detalhe.active{
     border-bottom: 1.5px solid blue;
 }
 
@@ -125,29 +133,9 @@
 
 .subdetails.show{
     display: flex;
-    padding: 0px;
-    margin: 20px 20px;
-}
-
-.pagination_details .subdetails h2{
-    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
     font-size: 1rem;
-    justify-content: baseline;
-}
-
-.subdetails .atributos{
-    margin: 0;
-    padding: 0;
-    font-size: 1rem;
-    display: flex;
-    justify-content: baseline;
-}
-
-.atributo{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: baseline;
-    margin: 20px;
 }
 
 .atributo h2{
@@ -156,39 +144,63 @@
 
 .atributo h3{
     font-weight: 200;
+    padding: 5px;
 }
 
 .atributo p{
     font-weight: 300;
+    padding: 5px;
 }
 
-.atributo.sts {
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: start;
-    justify-content: space-between; 
-   
+.atributo .info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.atributo .conteiner-ability{
+    display: inline;
+    gap: 10px;
+}
+
+.sts {
+    display: flex; 
+    justify-content: space-between;
+    text-align: center; 
+}
+
+.sts .statNumber{
+    display: grid;
+    padding: 37%;
+}
+
+.progress-container {
+    margin-left: 30px;
+    margin-bottom: 1px;
+    padding: 39%;
+    width: 300px; /* Largura da barra */
+    height: 30px; /* Altura da barra */
+    background-color: #ccc; /* Cor de fundo */
+    border-radius: 5px; /* Arredondamento dos cantos */
+  }
+
+.progress-bar {
+    height: 100%; /* Altura total da barra */
+    background-color: #007bff; /* Cor da parte preenchida */
+    transition: width 0.5s ease; /* Animação de transição */
+  }
+  
+.progress-value {
+    position: absolute; /* Posicionamento absoluto dentro do container */
+    top: 50%; /* Posicionamento vertical centralizado */
+    left: 50%; /* Posicionamento horizontal centralizado */
+    transform: translate(-50%, -50%); /* Ajusta a posição de acordo com o posicionamento absoluto */
+    font-size: 18px; /* Tamanho da fonte do valor percentual */
 }
 
 .atributo.move{
     display: grid; 
-    grid-template-columns: 1fr 1fr;
-    justify-items: start;
-    justify-content: space-between; 
-}
-
-.progress-status{
-    width: 50%; 
-    background-color: #ddd; 
-}
-
-.progressbar{
-    width: 1%; 
-    height: 35px; 
-    background-color: #4CAF50; 
-    text-align: center; 
-    line-height: 32px; 
-    color: black;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 @media screen and (min-width: 992px) {

@@ -1,7 +1,6 @@
 const params = new URLSearchParams(window.location.search)
 const id = params.get("id")
-const heart = document.querySelector(".heart")
-const tabs = document.querySelectorAll(".botao_detalhe")
+
 
 
 function transformData(pokeDetail) {
@@ -45,35 +44,8 @@ function transformData(pokeDetail) {
 }
 
 function convertPokemonToHtml(infos){
-    const newHtml =  document.write(`
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon</title>
-
-    <!-- Normalize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Font Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
-    <!-- Nosso CSS -->
-    <link rel="stylesheet" href="assets/css/vars.css">  
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/pokedex.css">
-    <link rel="stylesheet" href="assets/css/details.css">
-    <script src="https://kit.fontawesome.com/988f4d2dd8.js" crossorigin="anonymous"></script>
-
-    <script src="assets/js/pokemon-model.js"></script>
-    <script src="assets/js/poke-detalhes.js"></script>
-
-</head>
-<body>
+    return  document.body.innerHTML = `
+    
     <div id="detailPokemon"class="interface">
         <div class="pokemon">
             <div class="icons">
@@ -96,56 +68,61 @@ function convertPokemonToHtml(infos){
 
     <div class="pagination_details">
         <div class="tab_links">
-            <button  class="botao_detalhe active" content-id="about">About</button>
-            <button class="botao_detalhe" content-id="status")">Base Stats</button>
-            <button class="botao_detalhe" content-id="moves")">Moves</button>
+            <button  class="botao-detalhe active" content-id="about">About</button>
+            <button class="botao-detalhe" content-id="status")">Base Stats</button>
+            <button class="botao-detalhe" content-id="moves")">Moves</button>
         </div><!--tab_links-->
-        <div  class="subdetails">
+        <div id="about" class="subdetails">
                 <div class="types">
-                    <ol id="about"class="atributos">
+                    <ol  class="atributos">
                         <li class="atributo">
-                            <h3>heght</h3>
+                            <div class="info"><h3>heght</h3>
                             <p>${infos.height}</p>
                             <h3>weight</h3>
-                            <p>${infos.weight}</p>
-                            <h3>abilities</h3>
-                            <li>${infos.abilities.map((ability) => `<li class="ability ${ability}">${ability}</li>`).join('')}</li>
-                            <h2>Breeding</h2>
-                            <p></p>
+                            <p>${infos.weight}</p></div>
+                            <div class="conteiner-ability">
+                            <h3 ">abilities</h3>
+                            ${infos.abilities.map((ability) => `<p class="ability ${ability}">${ability}</p>`).join('')}</div>
                         </li>
                     </ol>
                 </div><!--types-->
         </div><!--subdetails-->
 
-        <div class="subdetails">
+        <div id="status" class="subdetails">
             <div class="types">
-                <ol id="status" class="atributos" >
+                <ol  class="atributos" >
                     <li class="atributo sts">
+                    <div class="nomeSts">
                     ${infos.stats.map((stat) => `<h3 class="stat ${stat}">${stat}</h3>`).join('')}
-                        <p>${infos.statsNumber.map((statNumber) => `<h3 class="stat ${statNumber}">${statNumber}</p>`).join('')}</p>
-                        <div class="progress-status"> 
-                            <div class="progressbar">
-                            </li>
-                        </div>
+                    </div>
+                    <div class="numSts">
+                        ${infos.statsNumber.map((statNumber) => `<p class="statNumber ${statNumber}">${statNumber}
+                        </p>
+                    `).join('')}</div> 
+                        ${infos.statsNumber.map((statNumber) => `<div class="progress-container">
+                        <div class="progress-bar"></div>
+                        <span class="progress-value">${statNumber}</span>
+                      </div>                      
+                    `).join('')}
+                    </li>
                 </ol><!--atributos-->
             </div><!--types-->
         </div><!--subdetails-->
 
-        <div  class="subdetails">
+        <div id="moves" class="subdetails">
             <div class="types">
-                <ol id="moves" class="atributos">
+                <ol  class="atributos">
                     <li class="atributo move">
-                    <p>${infos.moves.map((move) => `<h3 class="move ${move}">${move}</h3>`).join('')}</p>
+                    ${infos.moves.map((move) => `<h3 class="move ${move}">${move}</h3>`).join('')}
                     </li>
                 </ol><!--atributos-->
             </div><!--types-->
         </div><!--subdetails-->
     </div><!--pagination_details-->
 </div>
-</body>
-</html>
-`)   
-    return newHtml
+<script src="assets/js/tabs.js"></script>
+
+`
 }
 
 function getPokeData (number) {
@@ -163,26 +140,3 @@ function displayDetails(id) {
 
 displayDetails(id)
 
-heart.addEventListener("click", ()=>{
-    const iconHeart = document.querySelector("fa-regular fa-heart")
-    iconHeart.style.color = "red";
-    return iconHeart
-})
-
-tabs.forEach(tab => tab.addEventListener("click", ()=> tabClicked(tab)))
-
-const tabClicked = (tab)=> {
-    tabs.forEach(tab => tab.classList.remove("active"))
-    tab.classList.add("active")
-
-    const contents = document.querySelectorAll(".subdetails")
-    contents.forEach(content => content.classList.remove("show"))
-
-    const contentId = tab.getAttribute("content-id")
-    const content = document.getElementById(contentId)
-
-    content.classList.add("show")
-}
-
-const currentActiveTab = document.querySelector('.botao_detalhe.active')
-tabClicked(currentActiveTab)
