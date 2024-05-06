@@ -99,11 +99,13 @@ function convertPokemonToHtml(infos){
                             </p>
                             `).join('')}
                             </div> 
+                            <div class="bar">
                             ${infos.statsNumber.map((statNumber) => `<div class="progress-container">
                             <div class="progress-bar"></div>
                             <span class="progress-value">${statNumber}</span>
                             </div>                      
                             `).join('')}
+                            </div> 
                         </li>
                     </ol><!--atributos-->
                 </div><!--types-->
