@@ -45,7 +45,6 @@ function transformData(pokeDetail) {
 
 function convertPokemonToHtml(infos){
     return  document.body.innerHTML = `
-    
     <div id="detailPokemon"class="interface">
         <div class="pokemon">
             <div class="icons">
@@ -58,21 +57,21 @@ function convertPokemonToHtml(infos){
                 <div class="detail">
                     <ol class="types">
                                 ${infos.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                            </ol>
-                </div>
+                    </ol>
+            </div>
         </div> <!--pokemon-->
 
         <div class="imgPokemon">
         <img src="${infos.photo}" alt="${infos.name}">
         </div>
 
-    <div class="pagination_details">
-        <div class="tab_links">
-            <button  class="botao-detalhe active" content-id="about">About</button>
-            <button class="botao-detalhe" content-id="status")">Base Stats</button>
-            <button class="botao-detalhe" content-id="moves")">Moves</button>
-        </div><!--tab_links-->
-        <div id="about" class="subdetails">
+        <div class="pagination_details">
+            <div class="tab_links">
+                <button  class="botao-detalhe active" content-id="about">About</button>
+                <button class="botao-detalhe" content-id="status")">Base Stats</button>
+                <button class="botao-detalhe" content-id="moves")">Moves</button>
+            </div><!--tab_links-->
+            <div id="about" class="subdetails">
                 <div class="types">
                     <ol  class="atributos">
                         <li class="atributo">
@@ -86,43 +85,49 @@ function convertPokemonToHtml(infos){
                         </li>
                     </ol>
                 </div><!--types-->
-        </div><!--subdetails-->
+            </div><!--subdetails-->
 
-        <div id="status" class="subdetails">
-            <div class="types">
-                <ol  class="atributos" >
-                    <li class="atributo sts">
-                    <div class="nomeSts">
-                    ${infos.stats.map((stat) => `<h3 class="stat ${stat}">${stat}</h3>`).join('')}
-                    </div>
-                    <div class="numSts">
-                        ${infos.statsNumber.map((statNumber) => `<p class="statNumber ${statNumber}">${statNumber}
-                        </p>
-                    `).join('')}</div> 
-                        ${infos.statsNumber.map((statNumber) => `<div class="progress-container">
-                        <div class="progress-bar"></div>
-                        <span class="progress-value">${statNumber}</span>
-                      </div>                      
-                    `).join('')}
-                    </li>
-                </ol><!--atributos-->
-            </div><!--types-->
-        </div><!--subdetails-->
+            <div id="status" class="subdetails">
+                <div class="types">
+                    <ol  class="atributos" >
+                        <li class="atributo sts">
+                            <div class="nomeSts">
+                                ${infos.stats.map((stat) => `<h3 class="stat ${stat}">${stat}</h3>`).join('')}
+                            </div>
+                            <div class="numSts">
+                            ${infos.statsNumber.map((statNumber) => `<p class="statNumber ${statNumber}">${statNumber}
+                            </p>
+                            `).join('')}
+                            </div> 
+                            ${infos.statsNumber.map((statNumber) => `<div class="progress-container">
+                            <div class="progress-bar"></div>
+                            <span class="progress-value">${statNumber}</span>
+                            </div>                      
+                            `).join('')}
+                        </li>
+                    </ol><!--atributos-->
+                </div><!--types-->
+            </div><!--subdetails-->
 
-        <div id="moves" class="subdetails">
-            <div class="types">
-                <ol  class="atributos">
-                    <li class="atributo move">
-                    ${infos.moves.map((move) => `<h3 class="move ${move}">${move}</h3>`).join('')}
-                    </li>
-                </ol><!--atributos-->
-            </div><!--types-->
-        </div><!--subdetails-->
-    </div><!--pagination_details-->
-</div>
-<script src="assets/js/tabs.js"></script>
+            <div id="moves" class="subdetails">
+                <div class="types">
+                    <ol  class="atributos">
+                        <li class="atributo move">
+                        ${infos.moves.map((move) => `<h3 class="move ${move}">${move}</h3>`).join('')}
+                        </li>
+                    </ol><!--atributos-->
+                </div><!--types-->
+            </div><!--subdetails-->
+        </div><!--pagination_details-->
+    </div>
+    </div>`
+}
 
-`
+function scriptAdd() {
+    const scriptElement = document.createElement("script")
+    scriptElement.src = "assets/js/tabs.js"
+    scriptElement.async = true
+    document.body.appendChild(scriptElement)
 }
 
 function getPokeData (number) {
@@ -135,7 +140,9 @@ function getPokeData (number) {
 function displayDetails(id) {
     const finalResult = getPokeData(id)
     .then((pokeData = []) => {
-        const detailsPage = convertPokemonToHtml(pokeData)})
+        const detailsPage = convertPokemonToHtml(pokeData)
+        scriptAdd()
+    })
 }
 
 displayDetails(id)
