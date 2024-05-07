@@ -12,7 +12,8 @@
     padding: 0;
     border: 0;
     display: flex;
-    position: relative;  
+    position: relative;
+    text-align: center;
 }
 
 .interface .pokemon {
@@ -76,11 +77,16 @@
 }
 
 .interface .imgPokemon{
-    position: relative;
-    display: flex;
-    top: 4%;
-    justify-content: center;
+    margin: auto;
     z-index: 1;
+    text-align: center;
+}
+
+.interface .imgPokemon img{
+    max-width:220px;
+    max-height:210px;
+    width: auto;
+    height: auto;
 }
 
 .interface .pagination_details{
@@ -138,64 +144,53 @@
     font-size: 1rem;
 }
 
+.atributo{
+    text-align: start;
+    padding: 15px;
+}
+
 .atributo h2{
     font-weight: 400;
 }
 
 .atributo h3{
-    font-weight: 200;
-    padding: 5px;
+    font-weight: 200; 
 }
 
 .atributo p{
     font-weight: 300;
-    padding: 5px;
 }
 
 .atributo .info{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    text-align: center;
+    
 }
 
 .atributo .conteiner-ability{
-    display: inline;
+    display: flex;
+    justify-content: space-between;
     gap: 10px;
 }
 
 .sts {
-    display: flex; 
-    justify-content: space-between;
-    text-align: center; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    
 }
 
-.sts .statNumber{
+.sts .numSts{
     display: grid;
-    padding: 37%;
+    grid-template-columns: 1fr 1fr;
 }
 
 .progress-container {
-    margin-left: 30px;
+    margin-top: 8px;
+    margin-left: 25px;
     margin-bottom: 1px;
-    padding: 39%;
-    width: 300px; /* Largura da barra */
-    height: 30px; /* Altura da barra */
+    width: 50px; /* Largura da barra */
+    height: 10px; /* Altura da barra */
     background-color: #ccc; /* Cor de fundo */
-    border-radius: 5px; /* Arredondamento dos cantos */
-  }
-
-.progress-bar {
-    height: 100%; /* Altura total da barra */
-    background-color: #007bff; /* Cor da parte preenchida */
-    transition: width 0.5s ease; /* Animação de transição */
-  }
-  
-.progress-value {
-    position: absolute; /* Posicionamento absoluto dentro do container */
-    top: 50%; /* Posicionamento vertical centralizado */
-    left: 50%; /* Posicionamento horizontal centralizado */
-    transform: translate(-50%, -50%); /* Ajusta a posição de acordo com o posicionamento absoluto */
-    font-size: 18px; /* Tamanho da fonte do valor percentual */
 }
 
 .atributo.move{

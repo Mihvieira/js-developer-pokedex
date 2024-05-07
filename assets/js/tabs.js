@@ -19,5 +19,21 @@ const tabClicked = (tab)=> {
 const currentActiveTab = document.querySelector('.botao-detalhe.active')
 tabClicked(currentActiveTab)
 
+function updateBars(value) {
+    const sheet = document.styleSheets[0];
+    const rule = `.progress-bar-${value}{width: ${value}%; height: 100%;     background-color: #007bff; transition: width 0.5s ease;}`
+    sheet.insertRule(rule)
+}
+
+function barsNumber() {
+    const number =  document.querySelectorAll(".statNumber")
+    number.forEach(num => {
+        const text = num.textContent
+        updateBars(text)
+        
+    })
+}
+
+barsNumber()
 
 

@@ -95,16 +95,10 @@ function convertPokemonToHtml(infos){
                                 ${infos.stats.map((stat) => `<h3 class="stat ${stat}">${stat}</h3>`).join('')}
                             </div>
                             <div class="numSts">
-                            ${infos.statsNumber.map((statNumber) => `<p class="statNumber ${statNumber}">${statNumber}
-                            </p>
-                            `).join('')}
-                            </div> 
-                            <div class="bar">
-                            ${infos.statsNumber.map((statNumber) => `<div class="progress-container">
-                            <div class="progress-bar"></div>
-                            <span class="progress-value">${statNumber}</span>
-                            </div>                      
-                            `).join('')}
+                            ${infos.statsNumber.map((statNumber) => `<p class="statNumber">${statNumber}</p>
+                            <div class="progress-container">
+                            <div class="progress-bar-${statNumber}"></div>
+                            </div>`).join('')}
                             </div> 
                         </li>
                     </ol><!--atributos-->
