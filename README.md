@@ -18,7 +18,11 @@ A Pokedex API é uma aplicação web construída com HTML, CSS e JavaScript que 
 * **Design Responsivo:** A interface da API se adapta automaticamente a diferentes tamanhos de tela, garantindo uma ótima experiência em computadores, tablets e smartphones.
 
 **Imagens**
-   ![](https://github.com/Mihvieira/js-developer-pokedex/blob/main/imagens/tela_inicial.png)
+
+
+   * ![](https://github.com/Mihvieira/js-developer-pokedex/blob/main/imagens/tela_inicial.png)
+
+   * ![](https://github.com/Mihvieira/js-developer-pokedex/blob/main/imagens/tela%20de%20detalhes.png)
 
 
 **Tecnologias Utilizadas**
