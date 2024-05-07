@@ -17,7 +17,6 @@
 }
 
 .interface .pokemon {
-    background-color: var(--cor-grass);
     height: 380px;
     width: 100%;
     border: 0 10 0 10;
