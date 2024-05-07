@@ -17,6 +17,10 @@ A Pokedex API é uma aplicação web construída com HTML, CSS e JavaScript que 
 * **Abas Intuitivas:** As informações do Pokémon são organizadas em abas intuitivas, facilitando a navegação e o acesso rápido às informações desejadas.
 * **Design Responsivo:** A interface da API se adapta automaticamente a diferentes tamanhos de tela, garantindo uma ótima experiência em computadores, tablets e smartphones.
 
+**Imagens**
+
+
+
 **Tecnologias Utilizadas**
 
 * **HTML:** Estruturação da página e elementos da interface.
