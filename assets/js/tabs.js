@@ -36,4 +36,19 @@ function barsNumber() {
 
 barsNumber()
 
+function updateColors(type) {
+    const pokemonClass = document.querySelector(".pokemon")
+    pokemonClass.classList.add(`${type}`)
+    //const sheet = document.styleSheets[0];
+    //const rule = `.${type}{background-color: var(--cor-${type});}`
+}
+
+function colorType() {
+    const color =  document.querySelector(".type")
+    const type = color.textContent
+    console.log(type)
+    updateColors(type)
+}
+
+colorType()
 
