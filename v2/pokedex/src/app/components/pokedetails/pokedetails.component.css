@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style-type: none;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.interface{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    position: relative;
+    text-align: center;
+}
+
+.interface .pokemon {
+    height: 380px;
+    width: 100%;
+    border: 0 10 0 10;
+    margin: 0;
+    padding: 0;
+    border-radius: 0%;
+}
+
+.interface .pokemon .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.interface .pokemon .icons i{
+    color: white;
+}
+
+.icons .heart{
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.icons .heart.active i{
+    color: red;
+}
+
+.interface .pokemon .basicInfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px 20px;
+}
+
+.interface .pokemon .basicInfo .name{
+    font-size: 2.7rem;
+    font-weight: bold;
+}
+
+.interface .pokemon .basicInfo .number{
+    color: white;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 20px;
+}
+
+.interface .pokemon .basicInfo .detail .types{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.interface .pokemon .basicInfo .detail .types li{
+    font-size: .750rem;
+}
+
+.interface .imgPokemon{
+    margin: auto;
+    z-index: 1;
+    text-align: center;
+}
+
+.interface .imgPokemon img{
+    max-width:220px;
+    max-height:210px;
+    width: auto;
+    height: auto;
+}
+
+.interface .pagination_details{
+    position: absolute;
+    top: 96%;
+    background-color: white;
+    margin: 0;
+    padding: 7px;
+    display: inline-block;
+    border-top: 30px;
+    border-radius: 1rem;
+    width: 100%;
+    text-align: center;
+
+}
+
+.pagination_details .tab_links{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    overflow: hidden;
+    background-color: var(--cor-name);
+    border: 0px 10px;
+}
+
+.pagination_details .tab_links .botao-detalhe{
+    padding: 20px 0px;
+    color: gray;
+    float: left;
+    border: 1px;
+    background-color: var(--cor-name);
+    width: 25%;
+    cursor: pointer;
+    outline: none;
+    transition: .3s;
+}
+
+.tab_links .botao_detalhe:hover{
+    color: black;
+    border-bottom: 1.5px solid blue;
+}
+
+.pagination_details .tab_links .botao-detalhe.active{
+    border-bottom: 1.5px solid blue;
+}
+
+.subdetails {
+    display: none;
+}
+
+.subdetails.show{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+    font-size: 1rem;
+}
+
+.atributo{
+    text-align: start;
+    padding: 15px;
+}
+
+.atributo h2{
+    font-weight: 400;
+}
+
+.atributo h3{
+    font-weight: 200;
+}
+
+.atributo p{
+    font-weight: 300;
+}
+
+.atributo .info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.atributo .conteiner-ability{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.sts .numSts{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.progress-container {
+    margin-top: 8px;
+    margin-left: 25px;
+    margin-bottom: 1px;
+    width: 50px; /* Largura da barra */
+    height: 10px; /* Altura da barra */
+    background-color: #ccc; /* Cor de fundo */
+}
+
+.atributo.move{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (min-width: 992px) {
+    .interface {
+        max-width: 992px;
+        height: auto;
+        margin: 1rem auto;
+        border-radius: 1rem;
+    }
+}

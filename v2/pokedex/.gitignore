@@ -1,5 +1,28 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+### Angular ###
+## Angular ##
+# compiled output
+app/**/*.js
+app/**/*.js.map
+
+# dependencies
+bower_components/
+
+# misc
+.sass-cache/
+connect.lock/
+coverage/
+libpeerconnection.log/
+npm-debug.log
+testem.log
+typings/
+.angular/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
 # Compiled output
 /dist
 /tmp

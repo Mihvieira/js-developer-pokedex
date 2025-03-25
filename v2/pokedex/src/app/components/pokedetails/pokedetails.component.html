@@ -1,1 +1,85 @@
-<p>pokedetails works!</p>
+@if (pokemon) {
+  <div id="detailPokemon"class="interface">
+        <div class="pokemon">
+            <div class="icons">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+                <button class="heart" type="button"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="basicInfo">
+                <span class="name">{{pokemon.name}}</span>
+                <span class="number">#{{pokemon.number}}</span>
+                <div class="detail">
+                    <ol class="types">
+                      @for(type of pokemon.types; track $index){
+                        <li class="type {{type}}">{{type}}</li>
+                      }
+                    </ol>
+            </div>
+        </div> <!--pokemon-->
+
+        <div class="imgPokemon">
+        <img src="{{pokemon.photo}}" alt="{{pokemon.name}}">
+        </div>
+
+        <div class="pagination_details">
+            <div class="tab_links">
+                <button  class="botao-detalhe active" content-id="about">About</button>
+                <button class="botao-detalhe" content-id="status">Base Stats</button>
+                <button class="botao-detalhe" content-id="moves">Moves</button>
+            </div><!--tab_links-->
+            <div id="about" class="subdetails">
+                <div class="types">
+                    <ol  class="atributos">
+                        <li class="atributo">
+                            <div class="info"><h3>heght</h3>
+                            <p>{{pokemon.height}}</p>
+                            <h3>weight</h3>
+                            <p>{{pokemon.weight}}</p></div>
+                            <div class="conteiner-ability">
+                            <h3>abilities</h3>
+                            @for (ability of pokemon.abilities; track $index) {
+                              <p class="ability {{ability}}">{{ability}}</p>
+                            }
+                            </div>
+                        </li>
+                    </ol>
+                </div><!--types-->
+            </div><!--subdetails-->
+
+            <div id="status" class="subdetails">
+                <div class="types">
+                    <ol  class="atributos" >
+                        <li class="atributo sts">
+                            <div class="nomeSts">
+                              @for (stat of pokemon.stats; track $index) {
+                                <h3 class="stat {{stat}}">{{stat}}</h3>
+                              }
+                            </div>
+                            <div class="numSts">
+                              @for(statNumber of pokemon.statsNumber; track $index){
+                              <p class="statNumber">{{statNumber}}</p>
+                              <div class="progress-container">
+                              <div class="progress-bar-{{statNumber}}"></div>
+                            </div>
+                              }
+                            </div>
+                        </li>
+                    </ol><!--atributos-->
+                </div><!--types-->
+            </div><!--subdetails-->
+
+            <div id="moves" class="subdetails">
+                <div class="types">
+                    <ol  class="atributos">
+                        <li class="atributo move">
+                          @for (move of pokemon.moves; track $index) {
+                            <h3 class="move {{move}}">{{move}}</h3>
+                          }
+                        </li>
+                    </ol><!--atributos-->
+                </div><!--types-->
+            </div><!--subdetails-->
+        </div><!--pagination_details-->
+    </div>
+    </div>
+}

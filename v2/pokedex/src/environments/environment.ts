@@ -1,4 +1,6 @@
+const pokemonApiUrl = 'https://pokeapi.co/api/v2/pokemon';
+
 export const environment = {
   production: false,
-  apiUrl: 'https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}',
+  apiUrl: pokemonApiUrl,
 };

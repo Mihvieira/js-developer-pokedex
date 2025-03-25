@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: var(--font-roboto);
+    box-sizing: border-box;
+}
+
+:root{
+
+/* FONTE*/
+--font-roboto: 'Roboto', sans-serif;
+
+    /*COLORS*/
+--cor-body: #f6f8fc;
+--cor-number: #000;
+--cor-name:#fff;
+--cor-button: #6c79db;
+
+    /*Species COLORS*/
+--cor-normal:#a6a877;
+--cor-grass: #77c850;
+--cor-fire: #ee7f30;
+--cor-water: #678fee;
+--cor-electric: #f7cf2e;
+--cor-ice: #98d5d7;
+--cor-ground: #dfbf69;
+--cor-flying: #a98ff0;
+--cor-poison: #a040a0;
+--cor-fighting: #bf3029;
+--cor-psychic: #f65687;
+--cor-dark: #725847;
+--cor-rock: #b8a137;
+--cor-bug: #a8b720;
+--cor-ghost: #6e5896;
+--cor-steel: #b9b7cf;
+--cor-dragon: #6f38f6;
+--cor-fairy: #f9aec7;
+
+}
+
+
+body {
+    background-color: var(--cor-body);
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    background-color: var(--cor-name);
+}
+
+@media screen and (min-width: 992px) {
+    .content {
+        max-width: 992px;
+        height: auto;
+        margin: 1rem auto;
+        border-radius: 1rem;
+    }
+}
