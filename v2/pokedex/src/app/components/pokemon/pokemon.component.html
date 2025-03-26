@@ -3,12 +3,12 @@
 
   <ol id="pokemonList" class="pokemons">
     <!-- ..... Pokemons here ..... -->
-  @for (pokemon of pokemons; track pokemon.number) {
+  @for (pokemon of pokemons; track $index) {
   <li class="pokemon {{ pokemon.type }}">
     <button
+    [routerLink]="['/details', pokemon.number]"
       id="pokeDetails"
       type="button"
-      (click)="loadNewPage(pokemon.number)"
     >
       <span class="number">#{{ pokemon.number }}</span>
       <span class="name">{{ pokemon.name }}</span>

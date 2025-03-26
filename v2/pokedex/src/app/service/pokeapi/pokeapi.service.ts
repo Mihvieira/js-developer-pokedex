@@ -29,6 +29,7 @@ export class PokeapiService {
   constructor() {}
 
   getPokemons = async (offset: number, limit: number): Promise<Pokemon[]> => {
+    console.log(offset, limit)
     try {
       const url = `${environment.apiUrl}?offset=${offset}&limit=${limit}`;
 
