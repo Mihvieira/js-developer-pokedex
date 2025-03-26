@@ -1,11 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
-    font-family: var(--font-roboto);
-    box-sizing: border-box;
-}
-
 :root{
 
 /* FONTE*/
@@ -39,6 +34,11 @@
 
 }
 
+* {
+    font-family: var(--font-roboto);
+    box-sizing: border-box;
+}
+
 
 body {
     background-color: var(--cor-body);
@@ -51,11 +51,193 @@ body {
     background-color: var(--cor-name);
 }
 
+.pokemons {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#pokeDetails{
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.normal {
+    background-color: var(--cor-normal);
+}
+
+.grass {
+    background-color: var(--cor-grass);
+}
+
+.fire {
+    background-color: var(--cor-fire);
+}
+
+.water {
+    background-color: var(--cor-water);
+}
+
+.electric {
+    background-color: var(--cor-eletric);
+}
+
+.ice {
+    background-color: var(--cor-ice);
+}
+
+.ground {
+    background-color: var(--cor-ground);
+}
+
+.flying {
+    background-color: var(--cor-flying);
+}
+
+.poison {
+    background-color: var(--cor-poison);
+}
+
+.fighting {
+    background-color: var(--cor-fighting);
+}
+
+.psychic {
+    background-color: var(--cor-psychic);
+}
+
+.dark {
+    background-color: var(--cor-dark);
+}
+
+.rock {
+    background-color: var(--cor-rock);
+}
+
+.bug {
+    background-color: var(--cor-bug);
+}
+
+.ghost {
+    background-color: var(--cor-ghost);
+}
+
+.steel {
+    background-color: var(--cor-steel);
+}
+
+.dragon {
+    background-color: var(--cor-dragon);
+}
+
+.fairy {
+    background-color: var(--cor-fairy);
+}
+
+.pokemon {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.pokemon:hover{
+    border: 10px;
+}
+
+.pokemon .pokeDetalhes{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pokemon .number {
+    color: var(--cor-number);
+    opacity: .3;
+    text-align: right;
+    font-size: .625rem;
+}
+
+.pokemon .name {
+    text-transform: capitalize;
+    color: var(--cor-name);
+    margin-bottom: .25rem;
+}
+
+.pokemon .detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pokemon .detail .types {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.pokemon .detail .types .type {
+    color: var(--cor-name);
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    border-radius: 1rem;
+    filter: brightness(1.1);
+    text-align: center;
+}
+
+.pokemon .detail img {
+    max-width: 100%;
+    height: 70px;
+}
+
+
 @media screen and (min-width: 992px) {
     .content {
         max-width: 992px;
         height: auto;
         margin: 1rem auto;
         border-radius: 1rem;
+    }
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.pagination button {
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    color: var(--cor-name);
+    background-color: var(--cor-button);
+    border: none;
+    border-radius: 1rem;
+}
+
+@media screen and (min-width: 380px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .pokemons {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
