@@ -14,4 +14,5 @@ export class Pokemon {
   statNumber: number | undefined;
   moves: string[] = [];
   move: string | undefined;
+  url!: string;
 }

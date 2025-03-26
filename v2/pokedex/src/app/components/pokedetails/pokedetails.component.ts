@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { Pokemon } from '../../models/pokemon.model';
 import { PokedetailsService } from '../../service/pokedetails/pokedetails.service';
 import { ActivatedRoute } from '@angular/router';
@@ -24,7 +31,14 @@ export class PokedetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(async (params) => {
       this.id = Number(params.get('id'));
-      this.pokemon = await this.detailService.getPokeData(this.id);
+      this.detailService.getPokeData(this.id).subscribe(
+        (pokemon: Pokemon) => {
+          this.pokemon = pokemon; // Atribui os dados ao array
+        },
+        (error: any) => {
+          console.error('Erro ao buscar pokémons:', error);
+        }
+      );
     });
     this.barsNumber();
     this.colorType();
@@ -64,10 +78,8 @@ export class PokedetailsComponent implements OnInit {
 
   colorType() {
     this.typeElements.forEach((typeElement) => {
-    const type = typeElement.nativeElement.textContent.trim();
-    this.updateColors(type);
-    })
+      const type = typeElement.nativeElement.textContent.trim();
+      this.updateColors(type);
+    });
   }
 }
-
-

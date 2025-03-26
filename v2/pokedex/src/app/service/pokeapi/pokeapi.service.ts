@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../../models/pokemon.model';
 import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { catchError, forkJoin, map, mergeMap, Observable } from 'rxjs';
 
 function convertPokeApiDetailToPokemon(pokeDetail: any): Pokemon {
   const pokemon: Pokemon = new Pokemon();
@@ -25,41 +27,35 @@ function convertPokeApiDetailToPokemon(pokeDetail: any): Pokemon {
   providedIn: 'root',
 })
 export class PokeapiService {
+  private baseUrl: string = '';
 
-  constructor() {}
+  constructor(private http: HttpClient) {
+    this.baseUrl = environment.apiUrl;
+  }
 
-  getPokemons = async (offset: number, limit: number): Promise<Pokemon[]> => {
-    console.log(offset, limit)
-    try {
-      const url = `${environment.apiUrl}?offset=${offset}&limit=${limit}`;
-
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const jsonBody = await response.json();
-      const pokemons = jsonBody.results;
-      const detailRequests = pokemons.map(this.getPokemonDetail);
-      const pokemonsDetails = await Promise.all(detailRequests);
-      return pokemonsDetails;
-    } catch (error) {
-      console.error('Failed to fetch pokemons:', error);
-      throw error;
-    }
-  };
-
-  getPokemonDetail = (pokemon: any) => {
-    return fetch(pokemon.url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
+  getPokemons(offset: number, limit: number): any {
+    const url = this.baseUrl + '?offset=' + offset + '&limit=' + limit;
+    return this.http.get<any>(url).pipe(
+      mergeMap((response) => {
+        const detailRequests = response.results.map((pokemon: any) =>
+          this.getPokemonDetail(pokemon.url)
+        );
+        return forkJoin(detailRequests);
+      }),
+      catchError((error) => {
+        console.error('Failed to fetch pokemons: ', error);
+        throw error;
       })
-      .then(convertPokeApiDetailToPokemon)
-      .catch((error) => {
+    );
+  }
+
+  getPokemonDetail(url: string): Observable<Pokemon> {
+    return this.http.get<any>(url).pipe(
+      map((pokeDetail) => convertPokeApiDetailToPokemon(pokeDetail)),
+      catchError((error) => {
         console.error('Failed to fetch pokemon detail:', error);
         throw error;
-      });
-  };
+      })
+    );
+  }
 }

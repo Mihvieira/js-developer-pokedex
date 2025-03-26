@@ -19,26 +19,39 @@ export class PokemonComponent implements OnInit {
 
   constructor(private pokeApiService: PokeapiService) {}
 
-  async ngOnInit(): Promise<void> {
-    this.pokemons = await this.pokeApiService.getPokemons(this.offset, this.limit);
+  ngOnInit(): void {
+    this.pokeApiService.getPokemons(0, 20).subscribe(
+      (pokemons: Pokemon[]) => {
+        this.pokemons = pokemons; // Atribui os dados ao array
+      },
+      (error: any) => {
+        console.error('Erro ao buscar pokémons:', error);
+      }
+    );
   }
 
   async loadMoreButton(): Promise<void> {
     this.offset += this.limit;
-    console.log(this.offset);
 
     if (this.qtdRecordsWithNexPage >= this.maxRecords) {
       const newLimit = this.maxRecords - this.qtdRecordsWithNexPage;
-      console.log(newLimit);
-      let more = await this.pokeApiService.getPokemons(this.offset, newLimit);
-      console.log(more)
-      this.pokemons.push(...more);
-
-      console.log(this.pokemons);
+      this.pokeApiService.getPokemons(this.offset, newLimit).subscribe(
+        (pokemons: Pokemon[]) => {
+          this.pokemons.push(...pokemons);
+        },
+        (error: any) => {
+          console.error('Erro ao buscar pokémons:', error);
+        }
+      );
     } else {
-      let more = await this.pokeApiService.getPokemons(this.offset, this.limit);
-      console.log(more);
-      this.pokemons.push(...more);
+      this.pokeApiService.getPokemons(this.offset, this.limit).subscribe(
+        (pokemons: Pokemon[]) => {
+          this.pokemons.push(...pokemons);
+        },
+        (error: any) => {
+          console.error('Erro ao buscar pokémons:', error);
+        }
+      );
     }
   }
 }
