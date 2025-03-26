@@ -1,6 +1,6 @@
 @if (pokemon) {
 <div id="detailPokemon" class="interface">
-  <div #poke class="pokemon">
+  <div #poke class="pokemon {{ pokemon.types[0]}}">
     <div class="icons">
       <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
       <button class="heart" type="button">
@@ -72,7 +72,11 @@
       </div>
       <!--subdetails-->
 
-      <div id="status" class="subdetails" [class.show]="selectedTab === 'status'">
+      <div
+        id="status"
+        class="subdetails"
+        [class.show]="selectedTab === 'status'"
+      >
         <div class="types">
           <ol class="atributos">
             <li class="atributo sts">
@@ -85,7 +89,10 @@
                 @for(statNumber of pokemon.statsNumber; track $index){
                 <p #statNumber class="statNumber">{{ statNumber }}</p>
                 <div class="progress-container">
-                  <div class="progress-bar-{{ statNumber }}"></div>
+                  <div
+                    class="progress-bar-{{ statNumber }}"
+                    [style]="{ width: statNumber + '%', height: '100%', backgroundColor: '#007bff', transition: 'width 0.5s ease' }"
+                  ></div>
                 </div>
                 }
               </div>
